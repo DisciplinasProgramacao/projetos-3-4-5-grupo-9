@@ -1,10 +1,10 @@
-package codigo;
+package codigo.src;
 
-public class Van extends Veiculo {
+public class Furgao extends Veiculo {
 
-	public Van(String placa, double gastoLitro, double valorVenda) {
+	public Furgao(String placa, double gastoLitro, double valorVenda) {
 		super(placa, gastoLitro, valorVenda);
-		this.capacidadeTanque = 60.0;
+		this.capacidadeTanque = 80.0;
 		this.valorSeguro = valorVenda * 0.03;
 		this.valorIpva = valorVenda * 0.03;
 	}

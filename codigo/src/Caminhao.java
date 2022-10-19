@@ -1,4 +1,4 @@
-package codigo;
+package codigo.src;
 
 public class Caminhao extends Veiculo {
 	
