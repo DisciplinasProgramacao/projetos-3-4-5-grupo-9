@@ -1,18 +1,15 @@
 ![Open in Codespaces](https://classroom.github.com/assets/open-in-codespaces-abfff4d4e15f9e1bd8274d9a39a0befe03a0632bb0f153d0ec72ff541cedbe34.svg)
 # Nome do projeto
-Escreva um ou dois parágrafos resumindo o objetivo do seu projeto.
+O projeto consiste em uma aplicação capaz de registrar as frotas realizadas por diferentes tipos de veículos e as rotas realizadas por cada um deles.
 
 ## Alunos integrantes da equipe
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
-* Nome completo do aluno 4
-* Nome completo do aluno 4
+* João Pedro Mairinque de Azevedo
+* Leonardo Augusto Pereira do Carmo
+* Rafael Augusto Vieira de Almeida
 
 ## Professores responsáveis
 
-* Nome completo do professor 1
-* Nome completo do professor 2
+* Joao Caram
+* Cleiton Tavares
 
