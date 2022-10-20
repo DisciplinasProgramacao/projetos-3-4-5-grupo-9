@@ -15,6 +15,70 @@ public abstract class Veiculo {
 	protected double quilometragemTotal;
 	private double valorVenda;
 
+	public double getValorIpva() {
+		return valorIpva;
+	}
+
+	public void setValorIpva(double valorIpva) {
+		this.valorIpva = valorIpva;
+	}
+
+	public double getValorSeguro() {
+		return valorSeguro;
+	}
+
+	public void setValorSeguro(double valorSeguro) {
+		this.valorSeguro = valorSeguro;
+	}
+
+	public double getCapacidadeTanque() {
+		return capacidadeTanque;
+	}
+
+	public void setCapacidadeTanque(double capacidadeTanque) {
+		this.capacidadeTanque = capacidadeTanque;
+	}
+
+	public double getQuilometragemMaxima() {
+		return quilometragemMaxima;
+	}
+
+	public void setQuilometragemMaxima(double quilometragemMaxima) {
+		this.quilometragemMaxima = quilometragemMaxima;
+	}
+
+	public double getGastoLitro() {
+		return gastoLitro;
+	}
+
+	public void setGastoLitro(double gastoLitro) {
+		this.gastoLitro = gastoLitro;
+	}
+
+	public double getQuilometragemTotal() {
+		return quilometragemTotal;
+	}
+
+	public void setQuilometragemTotal(double quilometragemTotal) {
+		this.quilometragemTotal = quilometragemTotal;
+	}
+
+	public double getValorVenda() {
+		return valorVenda;
+	}
+
+	public void setValorVenda(double valorVenda) {
+		this.valorVenda = valorVenda;
+	}
+
+	public void setRotas(ArrayList<Rota> rotas) {
+		this.rotas = rotas;
+	}
+
+	public void setPlaca(String placa) {
+		this.placa = placa;
+	}
+
 	public Veiculo(String placa, double gastoLitro, double valorVenda) {
 		this.placa = placa;
 		this.gastoLitro = gastoLitro;
