@@ -15,6 +15,12 @@ public abstract class Veiculo {
 	private double gastoLitro;
 	protected double quilometragemTotal;
 	private double valorVenda;
+	
+	
+
+	public String getTipo() {
+		return tipo;
+	}
 
 	public double getValorIpva() {
 		return valorIpva;
