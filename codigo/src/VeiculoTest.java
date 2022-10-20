@@ -43,7 +43,7 @@ public class VeiculoTest {
         assertEquals(furgao.calcularGasto() , 3000);
 
         Veiculo carro = new Carro("123AE", 3, 50000);
-        assertEquals(carro.calcularGasto() , 3000);
+        assertEquals(carro.calcularGasto() , 4800);
     }
 
     
