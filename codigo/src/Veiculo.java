@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public abstract class Veiculo {
 	protected double valorIpva;
 	protected double valorSeguro;
-	ArrayList<Rota> rotas = new ArrayList();
+	ArrayList<Rota> rotas = new ArrayList<Rota>();
 	protected double capacidadeTanque;
 	private String placa;
 	private double quilometragemMaxima;
