@@ -1,47 +1,68 @@
 package codigo.src;
+import java.util.ArrayList;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
+public class Frota {
+    private int codigo;
+    private ArrayList<Rota> rotas;
+    private ArrayList<Veiculo> veiculos;
+    
 
-public class Rota {
-
-	DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-	
-	private LocalDate data;
-	private double distancia;
-	private String destino;
-	
-	
-
-	public Rota(double distancia, String destino) {
-		this.data = LocalDate.now();
-		this.distancia = distancia;
-		this.destino = destino;
-	}
-	
-	public LocalDate getData() {
-		return data;
+    public int getCodigo() {
+		return codigo;
 	}
 
-	public double getDistancia() {
-		return distancia;
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
 	}
-	public void setDistancia(double distancia) {
-		this.distancia = distancia;
-	}
-	public String getDestino() {
-		return destino;
-	}
-	public void setDestino(String destino) {
-		this.destino = destino;
-	}
-	
 
-	
-	
-	
-	
+	public ArrayList<Rota> getRotas() {
+		return rotas;
+	}
+
+	public void setRotas(ArrayList<Rota> rotas) {
+		this.rotas = rotas;
+	}
+
+	public ArrayList<Veiculo> getVeiculos() {
+		return veiculos;
+	}
+
+	public void setVeiculos(ArrayList<Veiculo> veiculos) {
+		this.veiculos = veiculos;
+	}
+
+	public Frota(int codigo){
+        this.codigo = codigo;
+        this.rotas = new ArrayList<Rota>();
+        this.veiculos = new ArrayList<Veiculo>();
+    }
+
+    public void adicionarVeiculo(Veiculo veiculo){
+        this.veiculos.add(veiculo);
+    }
+
+    public void adicionarRotaFrota(Rota rota){
+        this.rotas.add(rota);
+    }
+
+    public Veiculo localizarVeiculo(String placa){
+        for( Veiculo veiculo : this.veiculos){
+            if(veiculo.getPlaca().equals(placa)){
+                return veiculo;
+            }
+        }
+
+        return null;
+    }
+
+    public Rota localizarRota(String destino){
+        for( Rota rota : this.rotas){
+            if(rota.getDestino().equals(destino)){
+                return rota;
+            }
+        }
+
+        return null;
+    }
+
 }
