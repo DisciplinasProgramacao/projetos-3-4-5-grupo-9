@@ -1,0 +1,72 @@
+package codigo.src;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class LeitorArquivo {
+
+	public static List<Livro> leituraArquivo() {
+		File file = new File("src\\VEICULOS.txt");
+		Scanner sc = null;
+		List<Veiculos> listVeiculos = new ArrayList<>();
+		try {
+			sc = new Scanner(file);
+
+			while (sc.hasNextLine()) {
+				String linha[] = sc.nextLine().split(";");
+
+				if (linha[4] == "CAMINHAO") {
+
+					Veiculo caminhao = new Veiculo();
+					caminhao.setPlaca(linha[1]);
+					caminhao.setValorVenda(linha[2]);
+					caminhao.setGastoLitro(linha[3]);
+
+				}
+
+				if (linha[4] == "CARRO") {
+
+					Veiculo carro = new Veiculo();
+					carro.setPlaca(linha[1]);
+					carro.setValorVenda(linha[2]);
+					carro.setGastoLitro(linha[3]);
+
+				}
+				
+				if (linha[4] == "FURGAO") {
+
+					Veiculo furgao = new Veiculo();
+					furgao.setPlaca(linha[1]);
+					furgao.setValorVenda(linha[2]);
+					furgao.setGastoLitro(linha[3]);
+					
+				}
+				
+				else {
+					
+					Veiculo van = new Veiculo();
+					van.setPlaca(linha[1]);
+					van.setValorVenda(linha[2]);
+					van.setGastoLitro(linha[3]);
+				}
+				
+				
+				listVeiculos.add(veiculo);
+			}
+
+		} catch (FileNotFoundException ex) {
+			System.out.println("Erro ao abrir o arquivo: " + ex.getMessage());
+		} finally {
+			if (sc != null) {
+				sc.close();
+			}
+			System.out.println("Arquivo foi fechado!");
+		}
+
+		return listVeiculo;
+	}
+
+}
