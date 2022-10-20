@@ -31,5 +31,20 @@ public class VeiculoTest {
         assertEquals(novoVeiculo.getRotas().size() , 2);
     }
 
+    @Test
+    public void testeGastoVeiculo(){
+        Veiculo caminhao = new Caminhao("123AB", 3, 50000);      
+        assertEquals(caminhao.calcularGasto() , 3500);
+
+        Veiculo van = new Van("123AC", 3, 50000);
+        assertEquals(van.calcularGasto() , 3000);
+
+        Veiculo furgao = new Furgao("123AD", 3, 50000);
+        assertEquals(furgao.calcularGasto() , 3000);
+
+        Veiculo carro = new Carro("123AE", 3, 50000);
+        assertEquals(carro.calcularGasto() , 3000);
+    }
+
     
 }
