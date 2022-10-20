@@ -12,18 +12,20 @@ public abstract class Veiculo {
 	private String placa;
 	private double quilometragemMaxima;
 	private double gastoLitro;
-	private double quilometragemTotal;
+	protected double quilometragemTotal;
 	private double valorVenda;
 
 	public Veiculo(String placa, double gastoLitro, double valorVenda) {
 		this.placa = placa;
 		this.gastoLitro = gastoLitro;
 		this.valorVenda = valorVenda;
+		this.quilometragemTotal = 0;
 	}
 
-	public Rota incluirRota(Rota rota){
-		if(this.podeAdicionarRota(rota.getData(), rota.getDistancia())){
+	public Rota incluirRota(Rota rota) {
+		if (this.podeAdicionarRota(rota.getData(), rota.getDistancia())) {
 			this.rotas.add(rota);
+			this.quilometragemTotal += rota.getDistancia();
 			return rota;
 		}
 
@@ -39,17 +41,24 @@ public abstract class Veiculo {
 	public String mostrarDados() {
 		String dados = "";
 
-		dados += "\nPlaca: " + this.placa + "\n" + 
-				"Valor de venda: R$ " + this.valorVenda + "\n" + 
+		dados += "\nPlaca: " + this.placa + "\n" +
+				"Valor de venda: R$ " + this.valorVenda + "\n" +
 				"Km por litro: " + this.gastoLitro + "\n" +
 				"Rotas: \n";
-				
-		for(Rota rota : this.rotas){
-			dados += "Rota para: " + rota.getDestino() + "\n" + 
+
+		for (Rota rota : this.rotas) {
+			dados += "Rota para: " + rota.getDestino() + "\n" +
 					"Distancia: " + rota.getDistancia() + "\n";
 		}
 
 		return dados;
+	}
+
+	public String gerarRelatorio(){
+		String relatorio = "\nO gasto total do veículo é de R$ " + this.calcularGasto();
+
+		return relatorio;
+
 	}
 
 	public String getPlaca() {
@@ -58,8 +67,6 @@ public abstract class Veiculo {
 
 	public boolean podeAdicionarRota(LocalDate dataRota, double distanciaRota) {
 		double totalDia = 0;
-
-
 
 		for (Rota rota : this.rotas) {
 			if (rota.getData().equals(dataRota)) {

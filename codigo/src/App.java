@@ -161,6 +161,22 @@ public class App {
 					System.out.println(veiculoAchado.mostrarDados());
 
 					break;
+				
+				case 5:
+					String veiculoBuscar2;
+					Veiculo veiculoAchado2;
+
+					System.out.println("\nDigite a placa do veiculo: ");
+					veiculoBuscar2 = input.nextLine();
+					veiculoAchado2 = frota.localizarVeiculo(veiculoBuscar2);
+
+					if (veiculoAchado2 == null) {
+						System.out.println("\nVeiculo nao encontrado");
+						break;
+					}
+
+					System.out.println(veiculoAchado2.gerarRelatorio());
+					
 
 			}
 

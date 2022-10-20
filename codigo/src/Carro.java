@@ -1,7 +1,7 @@
 package codigo.src;
 
 public class Carro extends Veiculo {
-	
+
 	public Carro(String placa, double gastoLitro, double valorVenda) {
 		super(placa, gastoLitro, valorVenda);
 		this.capacidadeTanque = 50.0;
@@ -9,10 +9,10 @@ public class Carro extends Veiculo {
 		this.valorIpva = valorVenda * 0.04;
 	}
 
-
 	@Override
 	double calcularGasto() {
-		return 0;
+		return this.valorSeguro + this.valorIpva + (Math.floor( this.quilometragemTotal/10000) * 80);
+		
 	}
 
 }
