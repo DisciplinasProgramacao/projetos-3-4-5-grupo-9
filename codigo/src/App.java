@@ -5,7 +5,6 @@ public class App {
 
 	static Scanner input = new Scanner(System.in);
 
-	public static addRotaVeiculoFrota(String placa, )
 
 	public static Veiculo addVeiculoFrota(int tipo, String placa, double valorVenda, double gastoLitro){
 		Veiculo novoVeiculo = new Caminhao(placa, gastoLitro, valorVenda);
@@ -113,25 +112,33 @@ public class App {
 					Veiculo veiculoEncontrado;
 					Rota rotaEncontrada;
 
+
                     System.out.println("Digite a placa do veiculo: ");
 					placaBuscar = input.nextLine();
 					veiculoEncontrado = frota.localizarVeiculo(placaBuscar);
 
 					if(veiculoEncontrado == null){
 						System.out.println("Veiculo nao encontrado");
-						return;
+						break;
 					}
 
 					System.out.println("Digite o destino da rota: ");
 					rotaBuscar = input.nextLine();
-					rotaEncontrada = frota.localizarRota(placaBuscar);
+					rotaEncontrada = frota.localizarRota(rotaBuscar);
 
 					if(rotaEncontrada == null){
 						System.out.println("Rota nao encontrada");
-						return;
+						break;
 					}
 
-					veiculoEncontrado.incluirRota(rotaEncontrada);   
+					rotaEncontrada = veiculoEncontrado.incluirRota(rotaEncontrada);   
+
+					if(rotaEncontrada == null){
+						System.out.println("Veículo ja excedeu o limite diário");
+						break;
+					}
+
+					System.out.println("Rota adicionada com sucesso!");
 
 				case 4:
 					String veiculoBuscar;
@@ -141,9 +148,9 @@ public class App {
 					veiculoBuscar = input.nextLine();
 					veiculoAchado = frota.localizarVeiculo(veiculoBuscar);
 
-					if(veiculoEncontrado == null){
+					if(veiculoAchado == null){
 						System.out.println("Veiculo nao encontrado");
-						return;
+						break;
 					}
 
             }

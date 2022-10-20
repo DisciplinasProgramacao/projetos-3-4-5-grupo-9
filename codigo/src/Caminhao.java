@@ -9,11 +9,6 @@ public class Caminhao extends Veiculo {
 		this.valorIpva = valorVenda * 0.01;
 	}
 
-	@Override
-	void incluirRota(Rota rota) {
-		this.rotas.add(rota);
-		
-	}
 
 	@Override
 	double calcularGasto() {

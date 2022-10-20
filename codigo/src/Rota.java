@@ -1,25 +1,29 @@
 package codigo.src;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 public class Rota {
+
+	DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 	
-	private LocalDateTime data;
+	private LocalDate data;
 	private double distancia;
 	private String destino;
 
 	public Rota(double distancia, String destino) {
-		this.data = LocalDateTime.now();
+		this.data = LocalDate.now();
 		this.distancia = distancia;
 		this.destino = destino;
 	}
 	
-	public LocalDateTime getData() {
+	public LocalDate getData() {
 		return data;
 	}
-	public void setData(LocalDateTime data) {
-		this.data = data;
-	}
+
 	public double getDistancia() {
 		return distancia;
 	}

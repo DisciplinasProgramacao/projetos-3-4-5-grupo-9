@@ -1,5 +1,7 @@
 package codigo.src;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public abstract class Veiculo {
@@ -12,26 +14,44 @@ public abstract class Veiculo {
 	private double gastoLitro;
 	private double quilometragemTotal;
 	private double valorVenda;
-	
-	
-	
+
 	public Veiculo(String placa, double gastoLitro, double valorVenda) {
 		this.placa = placa;
 		this.gastoLitro = gastoLitro;
 		this.valorVenda = valorVenda;
 	}
 
-	abstract void incluirRota (Rota rota);
-	
+	public Rota incluirRota(Rota rota){
+		if(this.podeAdicionarRota(rota.getData())){
+			this.rotas.add(rota);
+			return rota;
+		}
+
+		return null;
+	}
+
 	abstract double calcularGasto();
-	
-	public ArrayList<Rota> getRotas(){
+
+	public ArrayList<Rota> getRotas() {
 		return this.rotas;
 	}
 
-	public String getPlaca(){
+	public String getPlaca() {
 		return this.placa;
 	}
 
+	public boolean podeAdicionarRota(LocalDate dataRota) {
+		double totalDia = 0;
+
+
+
+		for (Rota rota : this.rotas) {
+			if (rota.getData().equals(dataRota)) {
+				totalDia += rota.getDistancia();
+			}
+		}
+
+		return (this.capacidadeTanque * this.gastoLitro) > totalDia;
+	}
 
 }
