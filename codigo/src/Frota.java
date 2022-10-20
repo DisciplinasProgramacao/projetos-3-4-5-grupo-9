@@ -8,6 +8,8 @@ public class Frota {
 
     public Frota(int codigo){
         this.codigo = codigo;
+        this.rotas = new ArrayList<Rota>();
+        this.veiculos = new ArrayList<Veiculo>();
     }
 
     public void adicionarVeiculo(Veiculo veiculo){
