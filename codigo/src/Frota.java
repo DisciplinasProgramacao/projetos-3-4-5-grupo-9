@@ -6,4 +6,16 @@ public class Frota {
     private ArrayList<Rota> rotas;
     private ArrayList<Veiculo> veiculos;
 
+    public Frota(int codigo){
+        this.codigo = codigo;
+    }
+
+    public void adicionarVeiculo(Veiculo veiculo){
+        this.veiculos.add(veiculo);
+    }
+
+    public void adicionarRotaFrota(Rota rota){
+        this.rotas.add(rota);
+    }
+
 }
