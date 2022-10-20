@@ -29,5 +29,9 @@ public abstract class Veiculo {
 		return this.rotas;
 	}
 
+	public String getPlaca(){
+		return this.placa;
+	}
+
 
 }

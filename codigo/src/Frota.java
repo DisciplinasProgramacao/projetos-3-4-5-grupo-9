@@ -20,4 +20,24 @@ public class Frota {
         this.rotas.add(rota);
     }
 
+    public Veiculo localizarVeiculo(String placa){
+        for( Veiculo veiculo : this.veiculos){
+            if(veiculo.getPlaca().equals(placa)){
+                return veiculo;
+            }
+        }
+
+        return null;
+    }
+
+    public Rota localizarRota(String destino){
+        for( Rota rota : this.rotas){
+            if(rota.getDestino().equals(destino)){
+                return rota;
+            }
+        }
+
+        return null;
+    }
+
 }

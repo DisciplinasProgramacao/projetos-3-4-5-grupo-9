@@ -5,6 +5,8 @@ public class App {
 
 	static Scanner input = new Scanner(System.in);
 
+	public static addRotaVeiculoFrota(String placa, )
+
 	public static Veiculo addVeiculoFrota(int tipo, String placa, double valorVenda, double gastoLitro){
 		Veiculo novoVeiculo = new Caminhao(placa, gastoLitro, valorVenda);
 
@@ -102,14 +104,52 @@ public class App {
 
 					Rota novaRota = new Rota(distancia, destino);
 					frota.adicionarRotaFrota(novaRota);
-					
+
                     break;
 
                 case 3:
-                    System.out.println("Digite o código do livro para registrar a venda: ");
-        
+					String placaBuscar;
+					String rotaBuscar;
+					Veiculo veiculoEncontrado;
+					Rota rotaEncontrada;
+
+                    System.out.println("Digite a placa do veiculo: ");
+					placaBuscar = input.nextLine();
+					veiculoEncontrado = frota.localizarVeiculo(placaBuscar);
+
+					if(veiculoEncontrado == null){
+						System.out.println("Veiculo nao encontrado");
+						return;
+					}
+
+					System.out.println("Digite o destino da rota: ");
+					rotaBuscar = input.nextLine();
+					rotaEncontrada = frota.localizarRota(placaBuscar);
+
+					if(rotaEncontrada == null){
+						System.out.println("Rota nao encontrada");
+						return;
+					}
+
+					veiculoEncontrado.incluirRota(rotaEncontrada);   
+
+				case 4:
+					String veiculoBuscar;
+					Veiculo veiculoAchado;
+
+					System.out.println("Digite a placa do veiculo: ");
+					veiculoBuscar = input.nextLine();
+					veiculoAchado = frota.localizarVeiculo(veiculoBuscar);
+
+					if(veiculoEncontrado == null){
+						System.out.println("Veiculo nao encontrado");
+						return;
+					}
 
             }
+
+
+
 
         } while (opcao != 0);
 		
