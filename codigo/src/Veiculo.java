@@ -21,6 +21,9 @@ public abstract class Veiculo {
 	public String getTipo() {
 		return tipo;
 	}
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
 
 	public double getValorIpva() {
 		return valorIpva;
@@ -147,5 +150,7 @@ public abstract class Veiculo {
 
 		return (this.capacidadeTanque * this.gastoLitro) > (totalDia + distanciaRota);
 	}
+
+	
 
 }

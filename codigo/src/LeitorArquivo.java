@@ -17,44 +17,49 @@ public class LeitorArquivo {
 
 			while (sc.hasNextLine()) {
 				String linha[] = sc.nextLine().split(";");
-
+				
 				if (linha[4] == "CAMINHAO") {
 
 					Veiculo veiculo = new Veiculo();
 					veiculo.setPlaca(linha[1]);
 					veiculo.setValorVenda(Double.parseDouble(linha[2]));
 					veiculo.setGastoLitro(Double.parseDouble(linha[3]));
-
+                    veiculo.setTipo(linha[4]);
+					
 				}
 
 				if (linha[4] == "CARRO") {
 
-					Veiculo carro = new Veiculo();
-					carro.setPlaca(linha[1]);
-					carro.setValorVenda(Double.parseDouble(linha[2]));
-					carro.setGastoLitro(Double.parseDouble(linha[3]));
-
+					Veiculo veiculo = new Veiculo();
+					veiculo.setPlaca(linha[1]);
+					veiculo.setValorVenda(Double.parseDouble(linha[2]));
+					veiculo.setGastoLitro(Double.parseDouble(linha[3]));
+                    veiculo.setTipo(linha[4]);
+					
 				}
 				
 				if (linha[4] == "FURGAO") {
 
-					Veiculo furgao = new Veiculo();
-					furgao.setPlaca(linha[1]);
-					furgao.setValorVenda(Double.parseDouble(linha[2]));
-					furgao.setGastoLitro(Double.parseDouble(linha[3]));
+					Veiculo veiculo = new Veiculo();
+					veiculo.setPlaca(linha[1]);
+					veiculo.setValorVenda(Double.parseDouble(linha[2]));
+					veiculo.setGastoLitro(Double.parseDouble(linha[3]));
+					veiculo.setTipo(linha[4]);
 					
 				}
 				
 				else {
 					
-					Veiculo van = new Veiculo();
-					van.setPlaca(linha[1]);
-					van.setValorVenda(Double.parseDouble(linha[2]));
-					van.setGastoLitro(Double.parseDouble(linha[2]));
+					Veiculo veiculo = new Veiculo();
+					veiculo.setPlaca(linha[1]);
+					veiculo.setValorVenda(Double.parseDouble(linha[2]));
+					veiculo.setGastoLitro(Double.parseDouble(linha[3]));
+					veiculo.setTipo(linha[4]);
+					
 				}
 				
 				
-				listVeiculos.add(veiculo);
+				listVeiculos.add(Veiculo());
 			}
 
 		} catch (FileNotFoundException ex) {
