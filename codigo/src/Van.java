@@ -7,6 +7,7 @@ public class Van extends Veiculo {
 		this.capacidadeTanque = 60.0;
 		this.valorSeguro = valorVenda * 0.03;
 		this.valorIpva = valorVenda * 0.03;
+		this.tipo = "Van";
 	}
 
 

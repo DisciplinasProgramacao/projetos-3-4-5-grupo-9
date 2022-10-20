@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public abstract class Veiculo {
+	protected String tipo;
 	protected double valorIpva;
 	protected double valorSeguro;
 	ArrayList<Rota> rotas = new ArrayList<Rota>();

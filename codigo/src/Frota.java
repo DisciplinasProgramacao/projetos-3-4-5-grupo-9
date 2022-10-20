@@ -1,43 +1,47 @@
 package codigo.src;
-import java.util.ArrayList;
 
-public class Frota {
-    private int codigo;
-    private ArrayList<Rota> rotas;
-    private ArrayList<Veiculo> veiculos;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 
-    public Frota(int codigo){
-        this.codigo = codigo;
-        this.rotas = new ArrayList<Rota>();
-        this.veiculos = new ArrayList<Veiculo>();
-    }
+public class Rota {
 
-    public void adicionarVeiculo(Veiculo veiculo){
-        this.veiculos.add(veiculo);
-    }
+	DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+	
+	private LocalDate data;
+	private double distancia;
+	private String destino;
+	
+	
 
-    public void adicionarRotaFrota(Rota rota){
-        this.rotas.add(rota);
-    }
+	public Rota(double distancia, String destino) {
+		this.data = LocalDate.now();
+		this.distancia = distancia;
+		this.destino = destino;
+	}
+	
+	public LocalDate getData() {
+		return data;
+	}
 
-    public Veiculo localizarVeiculo(String placa){
-        for( Veiculo veiculo : this.veiculos){
-            if(veiculo.getPlaca().equals(placa)){
-                return veiculo;
-            }
-        }
+	public double getDistancia() {
+		return distancia;
+	}
+	public void setDistancia(double distancia) {
+		this.distancia = distancia;
+	}
+	public String getDestino() {
+		return destino;
+	}
+	public void setDestino(String destino) {
+		this.destino = destino;
+	}
+	
 
-        return null;
-    }
-
-    public Rota localizarRota(String destino){
-        for( Rota rota : this.rotas){
-            if(rota.getDestino().equals(destino)){
-                return rota;
-            }
-        }
-
-        return null;
-    }
-
+	
+	
+	
+	
 }
