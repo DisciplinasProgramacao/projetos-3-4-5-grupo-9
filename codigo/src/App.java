@@ -12,12 +12,19 @@ public class App {
 		switch (tipo) {
 			case 1:
 				novoVeiculo = new Caminhao(placa, gastoLitro, valorVenda);
+				break;
+
 			case 2:
 				novoVeiculo = new Carro(placa, gastoLitro, valorVenda);
+				break;
+
 			case 3:
 				novoVeiculo = new Furgao(placa, gastoLitro, valorVenda);
+				break;
+				
 			case 4:
 				novoVeiculo = new Van(placa, gastoLitro, valorVenda);
+				break;
 
 
 		}
@@ -139,6 +146,8 @@ public class App {
 					}
 
 					System.out.println("Rota adicionada com sucesso!");
+
+					break;
 
 				case 4:
 					String veiculoBuscar;

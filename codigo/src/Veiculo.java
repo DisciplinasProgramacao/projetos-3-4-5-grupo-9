@@ -22,7 +22,7 @@ public abstract class Veiculo {
 	}
 
 	public Rota incluirRota(Rota rota){
-		if(this.podeAdicionarRota(rota.getData())){
+		if(this.podeAdicionarRota(rota.getData(), rota.getDistancia())){
 			this.rotas.add(rota);
 			return rota;
 		}
@@ -40,7 +40,7 @@ public abstract class Veiculo {
 		return this.placa;
 	}
 
-	public boolean podeAdicionarRota(LocalDate dataRota) {
+	public boolean podeAdicionarRota(LocalDate dataRota, double distanciaRota) {
 		double totalDia = 0;
 
 
@@ -51,7 +51,7 @@ public abstract class Veiculo {
 			}
 		}
 
-		return (this.capacidadeTanque * this.gastoLitro) > totalDia;
+		return (this.capacidadeTanque * this.gastoLitro) > (totalDia + distanciaRota);
 	}
 
 }
