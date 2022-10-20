@@ -36,6 +36,22 @@ public abstract class Veiculo {
 		return this.rotas;
 	}
 
+	public String mostrarDados() {
+		String dados = "";
+
+		dados += "\nPlaca: " + this.placa + "\n" + 
+				"Valor de venda: R$ " + this.valorVenda + "\n" + 
+				"Km por litro: " + this.gastoLitro + "\n" +
+				"Rotas: \n";
+				
+		for(Rota rota : this.rotas){
+			dados += "Rota para: " + rota.getDestino() + "\n" + 
+					"Distancia: " + rota.getDistancia() + "\n";
+		}
+
+		return dados;
+	}
+
 	public String getPlaca() {
 		return this.placa;
 	}
