@@ -91,9 +91,18 @@ public class App {
                     break;
 
                 case 2:
-                    System.out.println("Digite o nome do autor:");
-                    String nome = input.nextLine();
+					String destino;
+					double distancia;
 
+                    System.out.println("Digite o destino da rota: ");
+                	destino = input.nextLine();
+
+					System.out.println("Digite a distancia da rota: ");
+					distancia = Double.parseDouble(input.nextLine());
+
+					Rota novaRota = new Rota(distancia, destino);
+					frota.adicionarRotaFrota(novaRota);
+					
                     break;
 
                 case 3:

@@ -7,6 +7,12 @@ public class Rota {
 	private LocalDateTime data;
 	private double distancia;
 	private String destino;
+
+	public Rota(double distancia, String destino) {
+		this.data = LocalDateTime.now();
+		this.distancia = distancia;
+		this.destino = destino;
+	}
 	
 	public LocalDateTime getData() {
 		return data;
@@ -27,11 +33,7 @@ public class Rota {
 		this.destino = destino;
 	}
 	
-	public Rota(double distancia, String destino) {
-		this.data = LocalDateTime.now();
-		this.distancia = distancia;
-		this.destino = destino;
-	}
+
 	
 	
 	
