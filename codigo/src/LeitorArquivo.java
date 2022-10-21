@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class LeitorArquivo {
 
 	public static List<Veiculo> leituraArquivo() {
-		File file = new File("src\\VEICULOS.txt");
+		File file = new File("codigo.src\\VEICULOS.txt");
 		Scanner sc = null;
 		List<Veiculo> listVeiculos = new ArrayList<>();
 		try {
