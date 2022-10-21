@@ -8,58 +8,40 @@ import java.util.Scanner;
 
 public class LeitorArquivo {
 
-	public static List<Veiculo> leituraArquivo() {
-		File file = new File("src\\VEICULOS.txt");
+	public ArrayList<Veiculo> leituraArquivo(String nome) {
+		File file = new File(nome);
 		Scanner sc = null;
-		List<Veiculo> listVeiculos = new ArrayList<>();
+		ArrayList<Veiculo> listVeiculos = new ArrayList<Veiculo>();
 		try {
 			sc = new Scanner(file);
 
 			while (sc.hasNextLine()) {
 				String linha[] = sc.nextLine().split(";");
-				
-				if (linha[4] == "CAMINHAO") {
 
-					Veiculo veiculo = new Veiculo();
-					veiculo.setPlaca(linha[1]);
-					veiculo.setValorVenda(Double.parseDouble(linha[2]));
-					veiculo.setGastoLitro(Double.parseDouble(linha[3]));
-                    veiculo.setTipo(linha[4]);
-					
+				Veiculo veiculo;
+
+				veiculo = new Caminhao(linha[0], Double.parseDouble(linha[2]),
+						Double.parseDouble(linha[1]));
+
+				if (linha[3].equals("CARRO")) {
+
+					veiculo = new Carro(linha[0], Double.parseDouble(linha[2]), Double.parseDouble(linha[1]));
+
 				}
 
-				if (linha[4] == "CARRO") {
+				if (linha[3].equals("FURGAO")) {
 
-					Veiculo veiculo = new Veiculo();
-					veiculo.setPlaca(linha[1]);
-					veiculo.setValorVenda(Double.parseDouble(linha[2]));
-					veiculo.setGastoLitro(Double.parseDouble(linha[3]));
-                    veiculo.setTipo(linha[4]);
-					
-				}
-				
-				if (linha[4] == "FURGAO") {
+					veiculo = new Furgao(linha[0], Double.parseDouble(linha[2]), Double.parseDouble(linha[1]));
 
-					Veiculo veiculo = new Veiculo();
-					veiculo.setPlaca(linha[1]);
-					veiculo.setValorVenda(Double.parseDouble(linha[2]));
-					veiculo.setGastoLitro(Double.parseDouble(linha[3]));
-					veiculo.setTipo(linha[4]);
-					
 				}
-				
-				else {
-					
-					Veiculo veiculo = new Veiculo();
-					veiculo.setPlaca(linha[1]);
-					veiculo.setValorVenda(Double.parseDouble(linha[2]));
-					veiculo.setGastoLitro(Double.parseDouble(linha[3]));
-					veiculo.setTipo(linha[4]);
-					
+
+				if (linha[3].equals("VAN")) {
+
+					veiculo = new Van(linha[0], Double.parseDouble(linha[2]), Double.parseDouble(linha[1]));
+
 				}
-				
-				
-				listVeiculos.add(Veiculo());
+
+				listVeiculos.add(veiculo);
 			}
 
 		} catch (FileNotFoundException ex) {
