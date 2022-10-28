@@ -42,7 +42,6 @@ public class App {
 		System.out.println("3 - Adicionar rota para veiculo");
 		System.out.println("4 - Localizar veiculo");
 		System.out.println("5 - Imprimir relatório");
-		System.out.println("6 - Carregar de arquivo");
 
 		System.out.println("0 - Sair");
 		System.out.print("Digite sua opção: ");
@@ -56,9 +55,7 @@ public class App {
 	}
 
 	public static void main(String[] args) {
-
 		Frota frota = new Frota(21312);
-
 
 		int opcao;
 
@@ -179,24 +176,7 @@ public class App {
 					}
 
 					System.out.println(veiculoAchado2.gerarRelatorio());
-
-				case 6:
-					String nomeArquivo;
-
-					System.out.println("\nDigite o nome do arquivo: ");
-					nomeArquivo = input.nextLine();
-
-					LeitorArquivo leitor = new LeitorArquivo();
-
-					ArrayList<Veiculo> veiculosArquivo = leitor.leituraArquivo(nomeArquivo);
 					
-					for(Veiculo veiculoArr : veiculosArquivo){
-						frota.adicionarVeiculo(veiculoArr);
-					}
-					
-					System.out.println("Todos os veículos do arquivo foram adicionados a frota");
-					break;
-
 
 			}
 
