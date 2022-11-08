@@ -1,22 +1,22 @@
-@@ -1,47 +1,48 @@
+
 package codigo.src;
 import java.util.*;
 public class App {
 	static Scanner input = new Scanner(System.in);
-	public static Veiculo addVeiculoFrota(int tipo, String placa, double valorVenda, double gastoLitro) {
-		Veiculo novoVeiculo = new Caminhao(placa, gastoLitro, valorVenda);
+	public static Veiculo addVeiculoFrota(int tipo, String placa, double valorVenda) {
+		Veiculo novoVeiculo = new Caminhao(placa, valorVenda);
 		switch (tipo) {
 			case 1:
-				novoVeiculo = new Caminhao(placa, gastoLitro, valorVenda);
+				novoVeiculo = new Caminhao(placa, valorVenda);
 				break;
 			case 2:
-				novoVeiculo = new Carro(placa, gastoLitro, valorVenda);
+				novoVeiculo = new Carro(placa, valorVenda);
 				break;
 			case 3:
-				novoVeiculo = new Furgao(placa, gastoLitro, valorVenda);
+				novoVeiculo = new Furgao(placa, valorVenda);
 				break;
 			case 4:
-				novoVeiculo = new Van(placa, gastoLitro, valorVenda);
+				novoVeiculo = new Van(placa, valorVenda);
 				break;
 		}
 		return novoVeiculo;
@@ -25,15 +25,15 @@ public class App {
 		System.out.println();
 		System.out.println("Sistema de frotas");
 		System.out.println("==========================");
-		System.out.println("1 - Adicionar veículo");
+		System.out.println("1 - Adicionar veï¿½culo");
 		System.out.println("2 - Adicionar rota na frota");
 		System.out.println("3 - Adicionar rota para veiculo");
 		System.out.println("4 - Localizar veiculo");
-		System.out.println("5 - Imprimir relatório");
+		System.out.println("5 - Imprimir relatï¿½rio");
 		System.out.println("6 - Carregar de arquivo");
 
 		System.out.println("0 - Sair");
-		System.out.print("Digite sua opção: ");
+		System.out.print("Digite sua opï¿½ï¿½o: ");
 		try {
 			int opcao = input.nextInt();
 			input.nextLine();
@@ -55,10 +55,9 @@ public class App {
 			switch (opcao) {
 				case 1:
 					int tipo;
-					double valorVenda;
-					double gastoLitro;
+					double valorVenda;					
 					String placa;
-					System.out.println("Digite o tipo de veículo: ");
+					System.out.println("Digite o tipo de veï¿½culo: ");
 					System.out.println("1 - Caminhao");
 					System.out.println("2 - Carro");
 					System.out.println("3 - Furgao");
@@ -69,9 +68,7 @@ public class App {
 					placa = input.nextLine();
 					System.out.println("\nDigite o valor de venda: ");
 					valorVenda = Double.parseDouble(input.nextLine());
-					System.out.println("\nDigite o gasto por litro: ");
-					gastoLitro = Double.parseDouble(input.nextLine());
-					Veiculo novoVeiculo = addVeiculoFrota(tipo, placa, valorVenda, gastoLitro);
+					Veiculo novoVeiculo = addVeiculoFrota(tipo, placa, valorVenda);
 					frota.adicionarVeiculo(novoVeiculo);
 					break;
 				case 2:
@@ -106,10 +103,10 @@ public class App {
 					}
 					rotaEncontrada = veiculoEncontrado.incluirRota(rotaEncontrada);
 					if (rotaEncontrada == null) {
-						System.out.println("\nVeículo ja excedeu o limite diário");
+						System.out.println("\nVeï¿½culo ja excedeu o limite diï¿½rio");
 						break;
 					}
-					System.out.println("\nRota adicionada ao veículo com sucesso!");
+					System.out.println("\nRota adicionada ao veï¿½culo com sucesso!");
 					break;
 				case 4:
 					String veiculoBuscar;
@@ -151,7 +148,7 @@ public class App {
 						frota.adicionarVeiculo(veiculoArr);
 					}
 
-					System.out.println("Todos os veículos do arquivo foram adicionados a frota");
+					System.out.println("Todos os veï¿½culos do arquivo foram adicionados a frota");
 					break;
 
 

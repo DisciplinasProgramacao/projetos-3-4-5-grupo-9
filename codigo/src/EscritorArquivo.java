@@ -10,7 +10,7 @@ public class EscritorArquivo {
 	public static void escritaArquivo(String path, Veiculo veiculo) {
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))) {
 
-			bw.write(veiculo.getPlaca()+";"+ veiculo.getValorVenda()+";"+veiculo.getGastoLitro()+";"+veiculo.getTipo());
+			bw.write(veiculo.getPlaca()+";"+ veiculo.getValorVenda()+";" +veiculo.getTipo());
 			bw.newLine();
 
 		} catch (IOException e) {

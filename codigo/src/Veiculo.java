@@ -12,7 +12,6 @@ public abstract class Veiculo {
 	protected double capacidadeTanque;
 	private String placa;
 	private double quilometragemMaxima;
-	private double gastoLitro;
 	protected double quilometragemTotal;
 	private double valorVenda;
 	
@@ -57,13 +56,6 @@ public abstract class Veiculo {
 		this.quilometragemMaxima = quilometragemMaxima;
 	}
 
-	public double getGastoLitro() {
-		return gastoLitro;
-	}
-
-	public void setGastoLitro(double gastoLitro) {
-		this.gastoLitro = gastoLitro;
-	}
 
 	public double getQuilometragemTotal() {
 		return quilometragemTotal;
@@ -89,9 +81,8 @@ public abstract class Veiculo {
 		this.placa = placa;
 	}
 
-	public Veiculo(String placa, double gastoLitro, double valorVenda) {
+	public Veiculo(String placa, double valorVenda) {
 		this.placa = placa;
-		this.gastoLitro = gastoLitro;
 		this.valorVenda = valorVenda;
 		this.quilometragemTotal = 0;
 	}
@@ -117,7 +108,6 @@ public abstract class Veiculo {
 
 		dados += "\nPlaca: " + this.placa + "\n" +
 				"Valor de venda: R$ " + this.valorVenda + "\n" +
-				"Km por litro: " + this.gastoLitro + "\n" +
 				"Rotas: \n";
 
 		for (Rota rota : this.rotas) {
@@ -148,7 +138,9 @@ public abstract class Veiculo {
 			}
 		}
 
-		return (this.capacidadeTanque * this.gastoLitro) > (totalDia + distanciaRota);
+		// return (this.capacidadeTanque * this.gastoLitro) > (totalDia + distanciaRota);
+
+		return false;
 	}
 
 	

@@ -3,8 +3,8 @@ package codigo.src;
 public class Caminhao extends Veiculo {
 	
 	
-	public Caminhao(String placa, double gastoLitro, double valorVenda) {
-		super(placa, gastoLitro, valorVenda);
+	public Caminhao(String placa, double valorVenda) {
+		super(placa, valorVenda);
 		this.capacidadeTanque = 250.0;
 		this.valorSeguro = (valorVenda * 0.02) + 2000;
 		this.valorIpva = valorVenda * 0.01;
