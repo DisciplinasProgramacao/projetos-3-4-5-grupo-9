@@ -88,13 +88,15 @@ public class Frota {
     public ArrayList<Veiculo> top3VeiculosComMaisRotas() {
         ArrayList<Veiculo> topVeiculos = new ArrayList<Veiculo>();
 
-        Veiculo top1;
-        Veiculo top2;
-        Veiculo top3;
+        for (Veiculo veiculo : this.veiculos)
+            topVeiculos.add(veiculo);
 
-        for (Veiculo veiculo : this.veiculos) {
+        Collections.sort(topVeiculos,
+                (o1, o2) -> Integer.compare(o1.getRotas().size(), o2.getRotas().size()));
 
-        }
+        Collections.reverse(topVeiculos);
+
+        return topVeiculos;
     }
 
     public ArrayList<Veiculo> veiculosOrdenadosPorGasto() {

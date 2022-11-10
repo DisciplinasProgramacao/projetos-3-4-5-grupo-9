@@ -46,18 +46,19 @@ public class App {
 		System.out.println();
 		System.out.println("Sistema de frotas");
 		System.out.println("==========================");
-		System.out.println("1 - Adicionar ve�culo");
+		System.out.println("1 - Adicionar veiculo");
 		System.out.println("2 - Adicionar rota na frota");
 		System.out.println("3 - Adicionar rota para veiculo");
 		System.out.println("4 - Localizar veiculo");
-		System.out.println("5 - Imprimir relat�rio");
+		System.out.println("5 - Imprimir relatorio");
 		System.out.println("6 - Carregar de arquivo");
 		System.out.println("7 - Visualizar quilometragem media da frota");
 		System.out.println("8 - Listar veiculos decrescentemente por gasto");
 		System.out.println("9 - Buscar rota por data");
+		System.out.println("10 - Listar top3 veiculos com mais rotas");
 
 		System.out.println("0 - Sair");
-		System.out.print("Digite sua op��o: ");
+		System.out.print("Digite sua opção: ");
 		try {
 			int opcao = input.nextInt();
 			input.nextLine();
@@ -211,6 +212,17 @@ public class App {
 						System.out.println("Nenhuma rota foi encontrada para essa data!");
 					}
 
+					break;
+
+				case 10:
+					System.out.println("\n");
+					for (int i = 0; i < frota.top3VeiculosComMaisRotas().size(); i++) {
+
+						System.out.println("Top " + (i + 1) + " - " + frota.top3VeiculosComMaisRotas().get(i).getPlaca() + " - "
+								+ frota.top3VeiculosComMaisRotas().get(i).getRotas().size() + " rotas");
+						if (i == 2)
+							break;
+					}
 					break;
 
 			}
