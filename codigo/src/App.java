@@ -183,7 +183,7 @@ public class App {
 						frota.adicionarVeiculo(veiculoArr);
 					}
 
-					System.out.println("Todos os ve�culos do arquivo foram adicionados a frota");
+					System.out.println("Todos os veiculos do arquivo foram adicionados a frota");
 					break;
 				case 7:
 					System.out.println("A quilometragem media da frota é " + frota.quilometragemMedia() + "km");

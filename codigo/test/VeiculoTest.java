@@ -37,11 +37,12 @@ public class VeiculoTest {
         
         assertEquals(novoVeiculo.getRotas().size() , 2);
         assertEquals(String.format("%.2f", novoVeiculo.getCapacidadeTanque()),"78,58");
-
+        assertEquals(String.format("%.2f", novoVeiculo.calcularGasto()),"3500,00");
+       
         novoVeiculo.abastecerTanque(1);
         assertEquals(String.format("%.2f", novoVeiculo.getGastosTotaisAbastecimento()),"1139,94");
 
-        assertEquals(String.format("%.2f", novoVeiculo.calcularGasto()),"3500,94");
+        assertEquals(String.format("%.2f", novoVeiculo.calcularGasto()),"4639,94");
 
     }
 

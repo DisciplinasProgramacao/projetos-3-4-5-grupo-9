@@ -182,13 +182,14 @@ public abstract class Veiculo {
 		for (Combustivel combustivel : combustivel) {
 			if (combustivel.estaAtivo() && !(combustivel.descricao().equals(combustivelAchado.descricao()))) {
 				combustivel.desativar();
+				this.gastosTotaisAbastecimento += combustivelAchado.calcularPreco(this.capacidadeTanque);
 			} else {
 				combustivel.ativar();
-				
+				this.gastosTotaisAbastecimento += combustivelAchado.calcularPreco(this.capacidadeMaxima - this.capacidadeTanque);
 			}
 		}
 
-		this.gastosTotaisAbastecimento += combustivelAchado.calcularPreco(this.capacidadeMaxima - this.capacidadeTanque);
+		
 
 		this.capacidadeTanque = this.capacidadeMaxima;
 
