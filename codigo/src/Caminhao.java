@@ -23,7 +23,7 @@ public class Caminhao extends Veiculo {
 
 
 	@Override
-	double calcularGasto() {
+	public double calcularGasto() {
 		return this.valorSeguro + this.valorIpva + (Math.floor(this.quilometragemTotal / 20000) * 1000) +  (Math.floor(this.quilometragemTotal / 30000) * 1000);
 		
 	}

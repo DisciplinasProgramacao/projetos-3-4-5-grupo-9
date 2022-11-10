@@ -41,20 +41,22 @@ public class VeiculoTest {
         novoVeiculo.abastecerTanque(1);
         assertEquals(String.format("%.2f", novoVeiculo.getGastosTotaisAbastecimento()),"1139,94");
 
+        assertEquals(String.format("%.2f", novoVeiculo.calcularGasto()),"3500,94");
+
     }
 
     @Test
     public void testeGastoVeiculo(){
-        Veiculo caminhao = new Caminhao("123AB", 3, 50000);      
+        Veiculo caminhao = new Caminhao("123AB", 50000);      
         assertEquals(caminhao.calcularGasto() , 3500);
 
-        Veiculo van = new Van("123AC", 3, 50000);
+        Veiculo van = new Van("123AC", 50000);
         assertEquals(van.calcularGasto() , 3000);
 
-        Veiculo furgao = new Furgao("123AD", 3, 50000);
+        Veiculo furgao = new Furgao("123AD", 50000);
         assertEquals(furgao.calcularGasto() , 3000);
 
-        Veiculo carro = new Carro("123AE", 3, 50000);
+        Veiculo carro = new Carro("123AE", 50000);
         assertEquals(carro.calcularGasto() , 4800);
     }
 

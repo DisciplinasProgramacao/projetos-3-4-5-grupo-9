@@ -23,7 +23,7 @@ public class Furgao extends Veiculo {
 
 
 	@Override
-	double calcularGasto() {
+	public double calcularGasto() {
 		return this.valorSeguro + this.valorIpva + (Math.floor(this.quilometragemTotal / 10000) * (120 + 500)) + this.gastosTotaisAbastecimento;
 	}
 

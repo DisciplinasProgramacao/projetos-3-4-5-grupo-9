@@ -104,7 +104,7 @@ public abstract class Veiculo {
 		return null;
 	}
 
-	abstract double calcularGasto();
+	public abstract double calcularGasto();
 
 	public ArrayList<Rota> getRotas() {
 		return this.rotas;

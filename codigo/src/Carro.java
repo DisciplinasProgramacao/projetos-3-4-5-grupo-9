@@ -24,7 +24,7 @@ public class Carro extends Veiculo {
 	}
 
 	@Override
-	double calcularGasto() {
+	public double calcularGasto() {
 		return this.valorSeguro + this.valorIpva + (Math.floor( this.quilometragemTotal/10000) * 80) + this.gastosTotaisAbastecimento;
 		
 	}
