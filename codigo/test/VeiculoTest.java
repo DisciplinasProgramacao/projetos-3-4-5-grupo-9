@@ -14,7 +14,7 @@ public class VeiculoTest {
 
     @Test
     public void testeIncluirRota(){
-        Veiculo novoVeiculo = new Caminhao("123AB", 3, 50000);
+        Veiculo novoVeiculo = new Caminhao("123AB", 50000);
         Rota novaRota = new Rota(300, "teste");
 
         novoVeiculo.incluirRota(novaRota);
@@ -24,7 +24,7 @@ public class VeiculoTest {
 
     @Test
     public void testeNaoIncluirRota(){
-        Veiculo novoVeiculo = new Caminhao("123AB", 3, 50000);
+        Veiculo novoVeiculo = new Caminhao("123AB", 50000);
         
         Rota rota1 = new Rota(300, "teste");
         Rota rota2 = new Rota(300, "teste1");
@@ -36,6 +36,11 @@ public class VeiculoTest {
 
         
         assertEquals(novoVeiculo.getRotas().size() , 2);
+        assertEquals(String.format("%.2f", novoVeiculo.getCapacidadeTanque()),"78,58");
+
+        novoVeiculo.abastecerTanque(1);
+        assertEquals(String.format("%.2f", novoVeiculo.getGastosTotaisAbastecimento()),"1139,94");
+
     }
 
     @Test

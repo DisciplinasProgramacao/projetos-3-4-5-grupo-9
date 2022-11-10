@@ -1,26 +1,47 @@
 
 package codigo.src;
+
 import java.util.*;
+
 public class App {
 	static Scanner input = new Scanner(System.in);
+
 	public static Veiculo addVeiculoFrota(int tipo, String placa, double valorVenda) {
+
 		Veiculo novoVeiculo = new Caminhao(placa, valorVenda);
+
 		switch (tipo) {
 			case 1:
+
 				novoVeiculo = new Caminhao(placa, valorVenda);
 				break;
 			case 2:
+
 				novoVeiculo = new Carro(placa, valorVenda);
 				break;
 			case 3:
+
 				novoVeiculo = new Furgao(placa, valorVenda);
 				break;
 			case 4:
+
 				novoVeiculo = new Van(placa, valorVenda);
 				break;
 		}
 		return novoVeiculo;
 	}
+
+	public static int menuTipoCombustivel(ArrayList<Combustivel> combustiveis) {
+		System.out.println("Escolha o tipo de combustivel");
+		for (int i = 0; i < combustiveis.size(); i++) {
+			System.out.println("\n" + (i + 1) + " - " + combustiveis.get(i).descricao());
+		}
+
+		int resposta = input.nextInt();
+		input.nextLine();
+		return resposta;
+	}
+
 	public static int menu() {
 		System.out.println();
 		System.out.println("Sistema de frotas");
@@ -47,7 +68,6 @@ public class App {
 
 		Frota frota = new Frota(21312);
 
-
 		int opcao;
 
 		do {
@@ -55,9 +75,9 @@ public class App {
 			switch (opcao) {
 				case 1:
 					int tipo;
-					double valorVenda;					
+					double valorVenda;
 					String placa;
-					System.out.println("Digite o tipo de ve�culo: ");
+					System.out.println("Digite o tipo de veiculo: ");
 					System.out.println("1 - Caminhao");
 					System.out.println("2 - Carro");
 					System.out.println("3 - Furgao");
@@ -103,7 +123,17 @@ public class App {
 					}
 					rotaEncontrada = veiculoEncontrado.incluirRota(rotaEncontrada);
 					if (rotaEncontrada == null) {
-						System.out.println("\nVe�culo ja excedeu o limite di�rio");
+						System.out.println("\nVeiculo sem combustivel suficiente, deseja abastecer?");
+						System.out.println("\n0 - Nao");
+						System.out.println("\n1 - Sim");
+						int resp = input.nextInt();
+						input.nextLine();
+
+						if (resp == 1) {
+							int tipoCombustivel = menuTipoCombustivel(veiculoEncontrado.getCombustivel());
+							veiculoEncontrado.abastecerTanque(tipoCombustivel);
+						}
+
 						break;
 					}
 					System.out.println("\nRota adicionada ao ve�culo com sucesso!");
@@ -120,7 +150,7 @@ public class App {
 					}
 					System.out.println(veiculoAchado.mostrarDados());
 					break;
-				
+
 				case 5:
 					String veiculoBuscar2;
 					Veiculo veiculoAchado2;
@@ -133,6 +163,7 @@ public class App {
 					}
 
 					System.out.println(veiculoAchado2.gerarRelatorio());
+					break;
 
 				case 6:
 					String nomeArquivo;
@@ -144,17 +175,16 @@ public class App {
 
 					ArrayList<Veiculo> veiculosArquivo = leitor.leituraArquivo(nomeArquivo);
 
-					for(Veiculo veiculoArr : veiculosArquivo){
+					for (Veiculo veiculoArr : veiculosArquivo) {
 						frota.adicionarVeiculo(veiculoArr);
 					}
 
 					System.out.println("Todos os ve�culos do arquivo foram adicionados a frota");
 					break;
 
-
 			}
 
 		} while (opcao != 0);
-		
+
 	}
 }

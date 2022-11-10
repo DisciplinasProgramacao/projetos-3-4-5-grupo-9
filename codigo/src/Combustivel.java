@@ -2,20 +2,40 @@ package codigo.src;
 
 public class Combustivel {
 
-	double gasolina = 4.8;
-	double etanol = 3.65;
-	double diesel = 6.65;
+	protected double consumo;
+	protected double precoAbastecimento;
+	protected double totalNoTanque;
+	protected boolean ativo;
+	protected String descricao;
 
-
-
-	void calcularConsumoMedio() {
-
+	public Combustivel(double precoAbastecimento, double consumo, String descricao){
+		this.precoAbastecimento = precoAbastecimento;
+		this.consumo = consumo;
+		this.descricao = descricao;
 	}
 
-	void calcularRota() {
-		
+	public double calcularPreco(double totalAPreencher){
+        return totalAPreencher * this.precoAbastecimento;
+    }
+
+	public double consumo(){
+		return this.consumo;
 	}
-	
-	
-	
+
+	public boolean estaAtivo(){
+		return this.ativo;
+	}
+
+	public void ativar(){
+		 this.ativo = true;
+	}
+
+	public void desativar(){
+		this.ativo = false;
+   }
+
+	public String descricao(){
+		return this.descricao;
+	}
+
 }
