@@ -52,6 +52,9 @@ public class App {
 		System.out.println("4 - Localizar veiculo");
 		System.out.println("5 - Imprimir relat�rio");
 		System.out.println("6 - Carregar de arquivo");
+		System.out.println("7 - Visualizar quilometragem media da frota");
+		System.out.println("8 - Listar veiculos decrescentemente por gasto");
+		System.out.println("9 - Buscar rota por data");
 
 		System.out.println("0 - Sair");
 		System.out.print("Digite sua op��o: ");
@@ -180,6 +183,34 @@ public class App {
 					}
 
 					System.out.println("Todos os ve�culos do arquivo foram adicionados a frota");
+					break;
+				case 7:
+					System.out.println("A quilometragem media da frota é " + frota.quilometragemMedia() + "km");
+					break;
+				case 8:
+					System.out.println("\n");
+					for (Veiculo veiculo : frota.veiculosOrdenadosPorGasto()) {
+						System.out.println(veiculo.getPlaca() + " - R$" + veiculo.calcularGasto());
+
+					}
+
+					break;
+				case 9:
+					String dataBusca;
+					System.out.println("\nDigite a data no formato (DD/MM/AAAA)");
+					dataBusca = input.nextLine();
+					System.out.println("\n");
+					ArrayList<Rota> rotasEncontradas = frota.buscarRotaPorData(dataBusca);
+
+					if (rotasEncontradas.size() != 0) {
+						for (Rota rota : rotasEncontradas) {
+							System.out.println("Destino " + rota.getDestino() + " - " + rota.getDistancia() + "km");
+
+						}
+					} else {
+						System.out.println("Nenhuma rota foi encontrada para essa data!");
+					}
+
 					break;
 
 			}
