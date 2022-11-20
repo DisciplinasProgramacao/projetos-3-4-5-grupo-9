@@ -136,6 +136,10 @@ public abstract class Veiculo {
 		return this.placa;
 	}
 
+	public String getArquivavel(){
+		return this.placa + ";" + this.valorVenda + ";" + this.tipo;
+	}
+
 	public double getGastoComRota(double distanciaRota) {
 		double gasto = 0;
 		for (Combustivel combustivel : this.combustivel) {
@@ -149,25 +153,8 @@ public abstract class Veiculo {
 	}
 
 	public boolean podeAdicionarRota(LocalDate dataRota, double distanciaRota) {
-		double totalDia = 0;
 
 		double capacidadeSeAdicionada = this.capacidadeTanque - this.getGastoComRota(distanciaRota);
-
-		// for (Rota rota : this.rotas) {
-		// if (rota.getData().equals(dataRota)) {
-		// totalDia += rota.getDistancia();
-		// }
-		// }
-
-		// boolean combustivelSuficiente = true;
-
-		// for (Combustivel combustivel : this.combustivel) {
-		// if(combustivel.estaAtivo()){
-		// combustivelSuficiente = (distanciaRota * combustivel.consumo()) > (totalDia +
-		// distanciaRota);
-		// }
-
-		// }
 
 		return capacidadeSeAdicionada > 0;
 	}

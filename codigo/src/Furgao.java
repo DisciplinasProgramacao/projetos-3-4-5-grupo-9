@@ -11,7 +11,7 @@ public class Furgao extends Veiculo {
 		this.capacidadeMaxima = 80;
 		this.valorSeguro = valorVenda * 0.03;
 		this.valorIpva = valorVenda * 0.03;
-		this.tipo = "Furgao";
+		this.tipo = "FURGAO";
 
 		ArrayList<Combustivel> combustiveis = new ArrayList<Combustivel>();
 		Combustivel gasolina = new Gasolina();

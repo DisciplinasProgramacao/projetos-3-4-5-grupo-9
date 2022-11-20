@@ -11,7 +11,7 @@ public class Caminhao extends Veiculo {
 		this.capacidadeMaxima = 250;
 		this.valorSeguro = (valorVenda * 0.02) + 2000;
 		this.valorIpva = valorVenda * 0.01;
-		this.tipo = "Caminhao";
+		this.tipo = "CAMINHAO";
 
 		ArrayList<Combustivel> combustiveis = new ArrayList<Combustivel>();
 		Combustivel diesel = new Diesel();

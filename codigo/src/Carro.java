@@ -11,7 +11,7 @@ public class Carro extends Veiculo {
 		this.capacidadeMaxima = 50;
 		this.valorSeguro = (valorVenda * 0.05) + 300;
 		this.valorIpva = valorVenda * 0.04;
-		this.tipo = "Carro";
+		this.tipo = "CARRO";
 
 		ArrayList<Combustivel> combustiveis = new ArrayList<Combustivel>();
 		Combustivel gasolina = new Gasolina();

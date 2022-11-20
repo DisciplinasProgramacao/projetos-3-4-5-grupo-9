@@ -10,7 +10,7 @@ public class Van extends Veiculo {
 		this.capacidadeMaxima = 60;
 		this.valorSeguro = valorVenda * 0.03;
 		this.valorIpva = valorVenda * 0.03;
-		this.tipo = "Van";
+		this.tipo = "VAN";
 
 		ArrayList<Combustivel> combustiveis = new ArrayList<Combustivel>();
 		Combustivel gasolina = new Gasolina();

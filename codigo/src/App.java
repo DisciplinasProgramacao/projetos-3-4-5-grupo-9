@@ -56,6 +56,7 @@ public class App {
 		System.out.println("8 - Listar veiculos decrescentemente por gasto");
 		System.out.println("9 - Buscar rota por data");
 		System.out.println("10 - Listar top3 veiculos com mais rotas");
+		System.out.println("11 - Escrever no arquivo");
 
 		System.out.println("0 - Sair");
 		System.out.print("Digite sua opção: ");
@@ -175,9 +176,41 @@ public class App {
 					System.out.println("\nDigite o nome do arquivo: ");
 					nomeArquivo = input.nextLine();
 
-					LeitorArquivo leitor = new LeitorArquivo();
+					ArquivoTextoLeitura leitor = new ArquivoTextoLeitura(nomeArquivo);
 
-					ArrayList<Veiculo> veiculosArquivo = leitor.leituraArquivo(nomeArquivo);
+					ArrayList<Veiculo> veiculosArquivo = new ArrayList<Veiculo>();
+
+					String linha = leitor.ler();
+
+					while (linha != null) {
+
+						String[] dados = linha.split(";");
+
+						Veiculo veiculoEnt = new Caminhao(dados[0], Double.parseDouble(dados[1]));
+
+						if (dados[2].equals("CAMINHAO")) {
+							veiculoEnt = new Caminhao(dados[0], Double.parseDouble(dados[1]));
+						}
+
+						if (dados[2].equals("FURGAO")) {
+							veiculoEnt = new Furgao(dados[0], Double.parseDouble(dados[1]));
+						}
+
+						if (dados[2].equals("CARRO")) {
+							veiculoEnt = new Carro(dados[0], Double.parseDouble(dados[1]));
+						}
+
+						if (dados[2].equals("VAN")) {
+							veiculoEnt = new Van(dados[0], Double.parseDouble(dados[1]));
+						}
+
+						veiculosArquivo.add(veiculoEnt);
+
+						linha = leitor.ler();
+
+					}
+
+					leitor.fecharArquivo();
 
 					for (Veiculo veiculoArr : veiculosArquivo) {
 						frota.adicionarVeiculo(veiculoArr);
@@ -218,11 +251,25 @@ public class App {
 					System.out.println("\n");
 					for (int i = 0; i < frota.top3VeiculosComMaisRotas().size(); i++) {
 
-						System.out.println("Top " + (i + 1) + " - " + frota.top3VeiculosComMaisRotas().get(i).getPlaca() + " - "
-								+ frota.top3VeiculosComMaisRotas().get(i).getRotas().size() + " rotas");
+						System.out.println(
+								"Top " + (i + 1) + " - " + frota.top3VeiculosComMaisRotas().get(i).getPlaca() + " - "
+										+ frota.top3VeiculosComMaisRotas().get(i).getRotas().size() + " rotas");
 						if (i == 2)
 							break;
 					}
+					break;
+				case 11:
+					System.out.println();
+
+					ArquivoTextoEscrita escritor = new ArquivoTextoEscrita("VEICULOSESCRITA.txt");
+
+					for (Veiculo veiculo : frota.getVeiculos()) {
+						escritor.escrever(veiculo.getArquivavel());
+					}
+
+					System.out.println("Veiculos da frota adicionados ao arquivo VEICULOSESCRITA.txt");
+
+					escritor.closeArquivo();
 					break;
 
 			}
