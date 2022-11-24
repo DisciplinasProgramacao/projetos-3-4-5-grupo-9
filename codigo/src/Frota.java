@@ -112,21 +112,26 @@ public class Frota {
         return novoArray;
     }
 
-    public ArrayList<Rota> buscarRotaPorData(String data) {
+    public ArrayList<Rota> buscarRotaPorData(String data) throws Exception {
         ArrayList<Rota> rotasEncontradas = new ArrayList<Rota>();
 
-        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
-        LocalDate dataDeBusca = LocalDate.parse(data, formatador);
-
-        for (Rota rota : this.rotas) {
-            if (rota.getData().equals(dataDeBusca)) {
-                rotasEncontradas.add(rota);
+        try {
+            DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            LocalDate dataDeBusca = LocalDate.parse(data, formatador);
+            for (Rota rota : this.rotas) {
+                if (rota.getData().equals(dataDeBusca)) {
+                    rotasEncontradas.add(rota);
+                }
+    
             }
-
+    
+            return rotasEncontradas;
+        } catch (Exception e){
+            throw new Exception();
         }
+      
 
-        return rotasEncontradas;
+        
 
     }
 

@@ -65,6 +65,7 @@ public class App {
 			input.nextLine();
 			return opcao;
 		} catch (InputMismatchException ie) {
+			input.nextLine();
 			return -1;
 		}
 	}
@@ -78,6 +79,9 @@ public class App {
 		do {
 			opcao = menu();
 			switch (opcao) {
+				case -1:
+					System.out.println("Por favor, insira um numero");
+					break;
 				case 1:
 					int tipo;
 					double valorVenda;
@@ -234,15 +238,19 @@ public class App {
 					System.out.println("\nDigite a data no formato (DD/MM/AAAA)");
 					dataBusca = input.nextLine();
 					System.out.println("\n");
-					ArrayList<Rota> rotasEncontradas = frota.buscarRotaPorData(dataBusca);
+					try {
+						ArrayList<Rota> rotasEncontradas = frota.buscarRotaPorData(dataBusca);
+						if (rotasEncontradas.size() != 0) {
+							for (Rota rota : rotasEncontradas) {
+								System.out.println("Destino " + rota.getDestino() + " - " + rota.getDistancia() + "km");
 
-					if (rotasEncontradas.size() != 0) {
-						for (Rota rota : rotasEncontradas) {
-							System.out.println("Destino " + rota.getDestino() + " - " + rota.getDistancia() + "km");
-
+							}
+						} else {
+							System.out.println("Nenhuma rota foi encontrada para essa data!");
 						}
-					} else {
-						System.out.println("Nenhuma rota foi encontrada para essa data!");
+					} catch (Exception e) {
+						System.out.println("Data inserida inválida");
+
 					}
 
 					break;
@@ -260,8 +268,10 @@ public class App {
 					break;
 				case 11:
 					System.out.println();
+					System.out.println("\nDigite o nome do arquivo: ");
+					String nomeArquivoEscrita = input.nextLine();
 
-					ArquivoTextoEscrita escritor = new ArquivoTextoEscrita("VEICULOSESCRITA.txt");
+					ArquivoTextoEscrita escritor = new ArquivoTextoEscrita(nomeArquivoEscrita);
 
 					for (Veiculo veiculo : frota.getVeiculos()) {
 						escritor.escrever(veiculo.getArquivavel());

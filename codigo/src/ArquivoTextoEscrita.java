@@ -12,7 +12,7 @@ public class ArquivoTextoEscrita{
 	  try{
 		saida = new BufferedWriter(new FileWriter(name));
 	  } catch(Exception ex) {
-		System.out.println("nn acheio");
+		System.out.println("Arquivo não encontrado");
 		
 	  }
 	}
