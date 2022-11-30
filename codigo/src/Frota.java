@@ -122,16 +122,13 @@ public class Frota {
                 if (rota.getData().equals(dataDeBusca)) {
                     rotasEncontradas.add(rota);
                 }
-    
+
             }
-    
+
             return rotasEncontradas;
-        } catch (Exception e){
+        } catch (Exception e) {
             throw new Exception();
         }
-      
-
-        
 
     }
 
