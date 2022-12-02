@@ -1,7 +1,6 @@
 package codigo.src;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public abstract class Veiculo {
