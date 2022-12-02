@@ -7,7 +7,7 @@ public class VeiculoTest {
 
     @Test
     public void testeIncluirRota(){
-        Veiculo novoVeiculo = new Caminhao("123AB", 3, 50000);
+        Veiculo novoVeiculo = new Caminhao("123AB", 50000);
         Rota novaRota = new Rota(300, "teste");
 
         novoVeiculo.incluirRota(novaRota);
@@ -17,7 +17,7 @@ public class VeiculoTest {
 
     @Test
     public void testeNaoIncluirRota(){
-        Veiculo novoVeiculo = new Caminhao("123AB", 3, 50000);
+        Veiculo novoVeiculo = new Caminhao("123AB", 50000);
         
         Rota rota1 = new Rota(300, "teste");
         Rota rota2 = new Rota(300, "teste1");
@@ -33,16 +33,16 @@ public class VeiculoTest {
 
     @Test
     public void testeGastoVeiculo(){
-        Veiculo caminhao = new Caminhao("123AB", 3, 50000);      
+        Veiculo caminhao = new Caminhao("123AB", 50000);      
         assertEquals(caminhao.calcularGasto() , 3500);
 
-        Veiculo van = new Van("123AC", 3, 50000);
+        Veiculo van = new Van("123AC", 50000);
         assertEquals(van.calcularGasto() , 3000);
 
-        Veiculo furgao = new Furgao("123AD", 3, 50000);
+        Veiculo furgao = new Furgao("123AD", 50000);
         assertEquals(furgao.calcularGasto() , 3000);
 
-        Veiculo carro = new Carro("123AE", 3, 50000);
+        Veiculo carro = new Carro("123AE", 50000);
         assertEquals(carro.calcularGasto() , 4800);
     }
 

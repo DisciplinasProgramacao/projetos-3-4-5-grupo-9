@@ -9,7 +9,7 @@ public class FrotaTest {
     public void testeFrotaEntidades(){
         Frota frota = new Frota(12335);
 
-        Veiculo novoVeiculo = new Caminhao("123AB", 3, 50000);
+        Veiculo novoVeiculo = new Caminhao("123AB", 50000);
         Rota novaRota = new Rota(300, "teste");
 
         frota.adicionarRotaFrota(novaRota);
