@@ -6,27 +6,67 @@ import java.util.*;
 public class App {
 	static Scanner input = new Scanner(System.in);
 
+	static FabricaCaminhao caminhao = new FabricaCaminhao();
+	static FabricaFurgao furgao = new FabricaFurgao();
+	static FabricaCarroEtanol carroEtanol = new FabricaCarroEtanol();
+	static FabricaCarroGasolina carroGasolina = new FabricaCarroGasolina();
+	static FabricaVanDiesel vanDiesel = new FabricaVanDiesel();
+	static FabricaVanGasolina vanGasolina = new FabricaVanGasolina();
+
 	public static Veiculo addVeiculoFrota(int tipo, String placa, double valorVenda) {
 
-		Veiculo novoVeiculo = new Caminhao(placa, valorVenda);
+		Veiculo novoVeiculo;
 
 		switch (tipo) {
 			case 1:
-
-				novoVeiculo = new Caminhao(placa, valorVenda);
+				novoVeiculo = caminhao.criar(placa, valorVenda);
 				break;
 			case 2:
+				System.out.println("Deseja cadastrar o carro utilizando inicialmente Gasolina(1) ou Etanol(2)?");
 
-				novoVeiculo = new Carro(placa, valorVenda);
+				try {
+					int tipoCombustivel = input.nextInt();
+					input.nextLine();
+					if (tipoCombustivel == 1) {
+						novoVeiculo = carroGasolina.criar(placa, valorVenda);
+					} else if (tipoCombustivel == 2) {
+						novoVeiculo = carroEtanol.criar(placa, valorVenda);
+					} else {
+						System.out.println("Tipo de combustível inválido. Operação cancelada.");
+						return null;
+					}
+				} catch (InputMismatchException ie) {
+					input.nextLine();
+					return null;
+				}
+
 				break;
 			case 3:
-
-				novoVeiculo = new Furgao(placa, valorVenda);
+				novoVeiculo = furgao.criar(placa, valorVenda);
 				break;
 			case 4:
 
-				novoVeiculo = new Van(placa, valorVenda);
+			System.out.println("Deseja cadastrar a van utilizando inicialmente Gasolina(1) ou Diesel(2)?");
+
+			try {
+				int tipoCombustivel = input.nextInt();
+				input.nextLine();
+				if (tipoCombustivel == 1) {
+					novoVeiculo = vanGasolina.criar(placa, valorVenda);
+				} else if (tipoCombustivel == 2) {
+					novoVeiculo = vanDiesel.criar(placa, valorVenda);
+				} else {
+					System.out.println("Tipo de combustível inválido. Operação cancelada.");
+					return null;
+				}
+			} catch (InputMismatchException ie) {
+				input.nextLine();
+				return null;
+			}
 				break;
+			default:
+				System.out.println("Tipo de veículo inválido");
+				return null;
 		}
 		return novoVeiculo;
 	}
@@ -98,7 +138,11 @@ public class App {
 					System.out.println("\nDigite o valor de venda: ");
 					valorVenda = Double.parseDouble(input.nextLine());
 					Veiculo novoVeiculo = addVeiculoFrota(tipo, placa, valorVenda);
-					frota.adicionarVeiculo(novoVeiculo);
+					if (novoVeiculo != null) {
+						frota.adicionarVeiculo(novoVeiculo);
+					} else {
+						System.out.println("Erro ao adicionar veiculo");
+					}
 					break;
 				case 2:
 					String destino;
@@ -228,7 +272,7 @@ public class App {
 				case 8:
 					System.out.println("\n");
 					for (Veiculo veiculo : frota.veiculosOrdenadosPorGasto()) {
-						System.out.println(veiculo.getPlaca() + " - R$" + veiculo.calcularGasto());
+						System.out.println(veiculo.getPlaca() + " - " + veiculo.getTipo() + " - R$" + veiculo.calcularGasto());
 
 					}
 
