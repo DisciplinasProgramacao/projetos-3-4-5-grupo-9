@@ -2,7 +2,7 @@
 package codigo.src;
 
 import java.util.*;
-
+import java.io.*;
 public class App {
 	static Scanner input = new Scanner(System.in);
 
