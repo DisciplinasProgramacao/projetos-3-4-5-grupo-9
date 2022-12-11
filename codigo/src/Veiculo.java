@@ -3,7 +3,7 @@ package codigo.src;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public abstract class Veiculo {
+public abstract class Veiculo implements Serializable {
 	protected String tipo;
 	protected double valorIpva;
 	protected double valorSeguro;
